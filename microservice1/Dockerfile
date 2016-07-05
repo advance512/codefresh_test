@@ -17,7 +17,7 @@ RUN mkdir -p /go/src/microservice
 WORKDIR /go/src/microservice
 
 # Add the source files
-ADD microservice1.go /go/src/microservice/
+ADD microservice1/microservice1.go /go/src/microservice/
 
 # Fetch all the project's dependencies using go get ./...
 RUN go get
@@ -25,10 +25,10 @@ RUN go get
 # Build the project
 RUN go build -o main .
 
-EXPOSE 1323
+EXPOSE 3000 
 
 # Run the executable by default when the container starts.
 ENTRYPOINT ["/go/src/microservice/main"]
 
 # Then run:
-# docker run --net=codefresh_test -p 1323:1323 --rm --name ms1 -it microservice1
+# docker run --net=codefresh_test -p 3000:3000 --rm --name ms1 -it microservice1

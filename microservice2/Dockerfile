@@ -17,7 +17,7 @@ RUN mkdir -p /go/src/microservice
 WORKDIR /go/src/microservice
 
 # Add the source files
-ADD microservice2.go /go/src/microservice/
+ADD microservice2/microservice2.go /go/src/microservice/
 
 # Fetch all the project's dependencies using go get ./...
 RUN go get
@@ -25,7 +25,7 @@ RUN go get
 # Build the project
 RUN go build -o main .
 
-#EXPOSE 1324
+#EXPOSE 3000 
 
 # Run the executable by default when the container starts.
 ENTRYPOINT ["/go/src/microservice/main"]
