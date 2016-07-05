@@ -1,0 +1,11 @@
+version: '2'
+services:
+  ms1:
+    image: microservice1
+    ports:
+     - "1323:1323"
+    depends_on:
+     - ms2
+  ms2:
+    image: microservice2
+
