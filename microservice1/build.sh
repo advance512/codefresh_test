@@ -2,13 +2,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-echo "Building microservice1."
-echo "Getting all Go dependencies..."
-go get
-
-echo "Building Go binary..."
-CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
-
 echo "Building Docker image microservice1"
 docker build -t microservice1 -f Dockerfile .
 
